@@ -33,6 +33,12 @@ public class ClientTest{
         assertEquals("Mary", newClient.getName());
     }
 
+    @Test
+    public void client_instantiatesWithNumber_Integer(){
+        Client newClient = new Client("Mary", 01,"email");
+        assertEquals(01, newClient.getNumber());
+    }
+
 
 
 }
