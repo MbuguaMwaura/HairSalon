@@ -21,11 +21,17 @@ public class ClientTest{
         }
     }
 
-    public void Client_instantiatesCorrectly_true(){
+    @Test
+    public void client_instantiatesCorrectly_true() {
         Client newClient = new Client("Mary", 01,"email");
         assertEquals(true, newClient instanceof Client);
     }
 
+    @Test
+    public void client_instantiatesWithName_String(){
+        Client newClient = new Client("Mary", 01,"email");
+        assertEquals("Mary", newClient.getName());
+    }
 
 
 
