@@ -21,6 +21,11 @@ public class ClientTest{
         }
     }
 
+    public void Client_instantiatesCorrectly_true(){
+        Client newClient = new Client("Mary", 01,"email");
+        assertEquals(true, newClient instanceof Client);
+    }
+
 
 
 
