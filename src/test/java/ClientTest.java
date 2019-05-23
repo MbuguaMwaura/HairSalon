@@ -39,6 +39,10 @@ public class ClientTest{
         assertEquals(01, newClient.getNumber());
     }
 
-
+    @Test
+    public void client_instantiatesWithEmail_String(){
+        Client newClient = new Client("Mary", 01,"email");
+        assertEquals("email", newClient.getEmail());
+    }
 
 }
