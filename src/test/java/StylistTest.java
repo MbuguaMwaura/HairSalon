@@ -36,4 +36,21 @@ public class StylistTest{
         assertEquals("female", newStylist.getGender());
     }
 
+    @Test
+    public void all_returnsAllInstancesOfStylists_true(){
+        Stylist firstStylist = new Stylist("Jessica", 01, 21, "female");
+        firstStylist.save();
+        Stylist secondStylist = new Stylist("James", 02, 25, "male");
+        secondStylist.save();
+        assertTrue(Stylist.all().contains(firstStylist));
+        assertTrue(Stylist.all().contains(secondStylist));
+    }
+
+    @Test
+    public void save_returnsTrue(){
+        Stylist newStylist = new Stylist("Jessica", 01, 21, "female");
+        newStylist.save();
+        assertTrue(Stylist.all().get(0).equals(newStylist));
+    }
+
 }
