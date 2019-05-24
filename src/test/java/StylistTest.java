@@ -80,9 +80,9 @@ public class StylistTest{
     public void getClients_returnsAllClientsForSpecificStylist(){
         Stylist stylist = new Stylist("Jessica", 01, 21, "female");
         stylist.save();
-        Client firstClient = new Client("Mary", 01,"email",stylist.getId());
+        Client firstClient = new Client("Mary", 01,"email",stylist.getId(),"male");
         firstClient.save();
-        Client secondClient = new Client("John", 02, "email",stylist.getId());
+        Client secondClient = new Client("John", 02, "email",stylist.getId(),"male");
         secondClient.save();
         Client[] clients = new Client[] {firstClient,secondClient};
         assertTrue(stylist.getClients().containsAll(Arrays.asList(clients)));
@@ -92,9 +92,9 @@ public class StylistTest{
     public void delete_removesAStylistWithItsClients(){
         Stylist stylist = new Stylist("Jessica", 01, 21, "female");
         stylist.save();
-        Client firstClient = new Client("Mary", 01,"email",stylist.getId());
+        Client firstClient = new Client("Mary", 01,"email",stylist.getId(),"male");
         firstClient.save();
-        Client secondClient = new Client("John", 02, "email",stylist.getId());
+        Client secondClient = new Client("John", 02, "email",stylist.getId(),"male");
         secondClient.save();
         int stylistid = stylist.getId();
         int clientOneId = firstClient.getId();
