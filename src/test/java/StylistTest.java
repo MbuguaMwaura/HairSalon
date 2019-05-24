@@ -53,4 +53,25 @@ public class StylistTest{
         assertTrue(Stylist.all().get(0).equals(newStylist));
     }
 
+    @Test
+    public void find_returnsStylistWithSameId_true(){
+        Stylist firstStylist = new Stylist("Jessica", 01, 21, "female");
+        firstStylist.save();
+        Stylist secondStylist = new Stylist("James", 02, 25, "male");
+        secondStylist.save();
+        assertEquals(secondStylist, Stylist.find(secondStylist.getId()));
+    }
+
+    @Test
+    public void update_updatesStylistDetails(){
+        Stylist newStylist = new Stylist("Jessica", 01, 21, "female");
+        newStylist.save();
+        newStylist.update("James", 02, 25, "male");
+        Stylist updated = new Stylist("James", 02, 25, "male");
+        assertEquals(updated.getName(), Stylist.find(newStylist.getId()).getName());
+        assertEquals(updated.getAge(), Stylist.find(newStylist.getId()).getAge());
+        assertEquals(updated.getGender(), Stylist.find(newStylist.getId()).getGender());
+        assertEquals(updated.getNumber(), Stylist.find(newStylist.getId()).getNumber());
+    }
+
 }

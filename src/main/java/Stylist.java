@@ -66,4 +66,26 @@ public class Stylist{
 
         }
     }
+
+    public static Stylist find(int id){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM stylists WHERE id=:id";
+            Stylist stylist = con.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetchFirst(Stylist.class);
+            return stylist;
+        }
+    }
+
+    public void update(String name, int number, int age, String gender){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "UPDATE stylists SET name = :name, number = :number, age = :age, gender = :gender";
+            con.createQuery(sql)
+                    .addParameter("name", name)
+                    .addParameter("number", number)
+                    .addParameter("age", age)
+                    .addParameter("gender", gender)
+                    .executeUpdate();
+        }
+    }
 }
