@@ -28,6 +28,12 @@ public class StylistTest{
     }
 
     @Test
-    public void stylist_instantiatesWithAllDetails
+    public void stylist_instantiatesWithAllDetails(){
+        Stylist newStylist = new Stylist("Jessica", 01, 21, "female");
+        assertEquals("Jessica", newStylist.getName());
+        assertEquals(01, newStylist.getNumber());
+        assertEquals(21, newStylist.getAge() );
+        assertEquals("female", newStylist.getGender());
+    }
 
 }
