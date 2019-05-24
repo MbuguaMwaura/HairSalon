@@ -72,4 +72,15 @@ public class ClientTest{
         assertTrue(Client.find(secondClient.getId()).equals(secondClient));
     }
 
+    @Test
+    public void update_updatesAClientDetails_true(){
+        Client newClient = new Client("Mary", 01,"email",1);
+        newClient.save();
+        newClient.update("John", 02, "email");
+        Client updated = new Client("John", 02, "email",2);
+        assertEquals(updated.getName(),Client.find(newClient.getId()).getName() );
+        assertEquals(updated.getEmail(),Client.find(newClient.getId()).getEmail() );
+        assertEquals(updated.getNumber(),Client.find(newClient.getId()).getNumber() );
+    }
+
 }
