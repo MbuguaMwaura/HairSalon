@@ -2,6 +2,8 @@ import org.junit.*;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 public class StylistTest{
@@ -72,6 +74,18 @@ public class StylistTest{
         assertEquals(updated.getAge(), Stylist.find(newStylist.getId()).getAge());
         assertEquals(updated.getGender(), Stylist.find(newStylist.getId()).getGender());
         assertEquals(updated.getNumber(), Stylist.find(newStylist.getId()).getNumber());
+    }
+
+    @Test
+    public void getClients_returnsAllClientsForSpecificStylist(){
+        Stylist stylist = new Stylist("Jessica", 01, 21, "female");
+        stylist.save();
+        Client firstClient = new Client("Mary", 01,"email",stylist.getId());
+        firstClient.save();
+        Client secondClient = new Client("John", 02, "email",stylist.getId());
+        secondClient.save();
+        Client[] clients = new Client[] {firstClient,secondClient};
+        assertTrue(stylist.getClients().containsAll(Arrays.asList(clients)));
     }
 
 }
