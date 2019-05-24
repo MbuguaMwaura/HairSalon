@@ -45,6 +45,22 @@ public class ClientTest{
         assertEquals("email", newClient.getEmail());
     }
 
+    @Test
+    public void all_ReturnsAllInstancesOfClient_true(){
+        Client firstClient = new Client("Mary", 01,"email");
+        firstClient.save();
+        Client secondClient = new Client("John", 02, "email");
+        secondClient.save();
+        assertEquals(true, Client.all().contains(firstClient));
+        assertEquals(true, Client.all().contains(secondClient));
+    }
 
+    @Test
+    public void save_returnsTrue(){
+        Client newClient = new Client("Mary", 01,"email");
+        newClient.save();
+        assertTrue(Client.all().get(0).equals(newClient));
+
+    }
 
 }
