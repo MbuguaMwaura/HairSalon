@@ -63,4 +63,13 @@ public class ClientTest{
 
     }
 
+    @Test
+    public void find_returnsInstanceOfSpecificId_true(){
+        Client firstClient = new Client("Mary", 01,"email",1);
+        firstClient.save();
+        Client secondClient = new Client("John", 02, "email",1);
+        secondClient.save();
+        assertTrue(Client.find(secondClient.getId()).equals(secondClient));
+    }
+
 }
