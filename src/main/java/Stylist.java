@@ -98,4 +98,18 @@ public class Stylist{
 
         }
     }
+
+    public void deleteStylist(){
+        try(Connection con = DB.sql2o.open()){
+            String sqlStylist = "DELETE FROM stylists WHERE id = :id";
+            String sqlClients = "DELETE FROM clients WHERE stylistId = :id";
+            con.createQuery(sqlClients)
+                    .addParameter("id", id)
+                    .executeUpdate();
+            con.createQuery(sqlStylist)
+                    .addParameter("id", id)
+                    .executeUpdate();
+
+        }
+    }
 }

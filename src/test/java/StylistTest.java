@@ -88,4 +88,20 @@ public class StylistTest{
         assertTrue(stylist.getClients().containsAll(Arrays.asList(clients)));
     }
 
+    @Test
+    public void delete_removesAStylistWithItsClients(){
+        Stylist stylist = new Stylist("Jessica", 01, 21, "female");
+        stylist.save();
+        Client firstClient = new Client("Mary", 01,"email",stylist.getId());
+        firstClient.save();
+        Client secondClient = new Client("John", 02, "email",stylist.getId());
+        secondClient.save();
+        int stylistid = stylist.getId();
+        int clientOneId = firstClient.getId();
+        int clientTwoId = secondClient.getId();
+        stylist.deleteStylist();
+        assertEquals(null, Stylist.find(stylistid));
+        assertEquals(null, Client.find(clientOneId));
+        assertEquals(null, Client.find(clientTwoId));
+    }
 }
