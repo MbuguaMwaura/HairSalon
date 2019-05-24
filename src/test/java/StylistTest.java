@@ -21,5 +21,13 @@ public class StylistTest{
         }
     }
 
+    @Test
+    public void stylist_instantiatesCorrectly(){
+        Stylist newStylist = new Stylist("Jessica", 01, 21, "female");
+        assertEquals(true, newStylist instanceof Stylist);
+    }
+
+    @Test
+    public void stylist_instantiatesWithAllDetails
 
 }
