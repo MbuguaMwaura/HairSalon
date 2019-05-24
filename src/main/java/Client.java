@@ -20,4 +20,16 @@ public class Client{
     public String getEmail(){
         return email;
     }
+
+    @Override
+    public boolean equals(Object otherClient){
+        if(!(otherClient instanceof Client)){
+            return false;
+        } else {
+            Client newClient = (Client) otherClient;
+            return this.getName().equals(newClient.getName()) &&
+                    this.getEmail().equals(newClient.getEmail()) &&
+                    this.getNumber() == newClient.getNumber();
+        }
+    }
 }

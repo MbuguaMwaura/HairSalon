@@ -45,4 +45,6 @@ public class ClientTest{
         assertEquals("email", newClient.getEmail());
     }
 
+
+
 }
