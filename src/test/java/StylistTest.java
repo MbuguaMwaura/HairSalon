@@ -104,4 +104,13 @@ public class StylistTest{
         assertEquals(null, Client.find(clientOneId));
         assertEquals(null, Client.find(clientTwoId));
     }
+
+    @Test
+    public void count_returnsTheNumberOfStylists_int(){
+        Stylist firstStylist = new Stylist("Jessica", 01, 21, "female");
+        firstStylist.save();
+        Stylist secondStylist = new Stylist("James", 02, 25, "male");
+        secondStylist.save();
+        assertEquals(2, Stylist.getCount());
+    }
 }

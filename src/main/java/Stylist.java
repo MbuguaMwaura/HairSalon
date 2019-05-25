@@ -112,4 +112,8 @@ public class Stylist{
 
         }
     }
+
+    public static int getCount(){
+        return Stylist.all().size();
+    }
 }
