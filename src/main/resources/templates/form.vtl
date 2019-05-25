@@ -2,25 +2,25 @@
   <div class = "row">
 
     <div class = "col m6">
-<form class="col s12">
+<form class="col s12" action = "/stylists" method = "post">
     <div class="row">
 
             <div class="input-field col s12">
-              <input id="name" type="text" class="validate">
+              <input id="name" type="text" name="name" class="validate">
               <label for="name">Name</label>
             </div>
           </div>
 
           <div class="row">
             <div class="input-field col s6">
-              <input type="number" class="validate">
+              <input type="number" name="number" class="validate">
               <label for="number">Number</label>
             </div>
           </div>
 
           <div class="row">
                        <div class="input-field col s6">
-                         <input type="number" class="validate">
+                         <input type="number" name="age" class="validate">
                          <label for="age">Age</label>
                        </div>
                      </div>
@@ -28,11 +28,14 @@
            <div class="row">
 
                        <div class="input-field col s6">
-                         <input id="gender" type="text" class="validate">
+                         <input id="gender" name="gender" type="text" class="validate">
                          <label for="gender">Gender</label>
                        </div>
                      </div>
 
+ <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
 
                 </form>
               </div>
