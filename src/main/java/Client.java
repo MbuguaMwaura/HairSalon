@@ -109,4 +109,8 @@ public class Client{
                     .executeUpdate();
         }
     }
+
+    public static int getCount(){
+        return Client.all().size();
+    }
 }

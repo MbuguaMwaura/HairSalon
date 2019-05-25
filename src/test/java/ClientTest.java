@@ -93,4 +93,13 @@ public class ClientTest{
         newClient.deleteClient();
         assertEquals(null, Client.find(clientId));
     }
+
+    @Test
+    public void count_returnsNumberOfClients_int(){
+        Client firstClient = new Client("Mary", 01,"email",1, "female");
+        firstClient.save();
+        Client secondClient = new Client("John", 02, "email",1,"male");
+        secondClient.save();
+        assertEquals(2, Client.getCount());
+    }
 }
