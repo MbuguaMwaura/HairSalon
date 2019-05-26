@@ -54,7 +54,7 @@
 
 <div class = "col m6">
 
-    <h1>$stylists.getName()</h1>
+
 
 </div>
 
@@ -94,16 +94,17 @@
           </div>
 
         <div class="row">
+<label class="text-white"  for="stylistId">Select a Stylist</label>
+                             <select id='stylistId' name='stylistId' type='text'>
 
-          <div class="input-field col s12">
-            <select name='stylistId'>
-              <option value="" disabled selected>Choose your option</option>
-               #foreach($stylist in $stylists)
-                  <option value="$stylist.getId()">$stylist.getName()</option
-               #end
-            </select>
-            <label for="stylistId">Select a Stylist</label>
+                                <option class="text-muted" value="" disabled selected>Click Me</option>
+                                 #foreach($stylist in $stylists)
+                                 <option value="$stylist.getId()">$stylist.getName()</option>
+                               #end
+                             </select>
           </div>
+
+
 
 
   <div class="row">
