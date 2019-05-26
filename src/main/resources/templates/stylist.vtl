@@ -15,8 +15,8 @@
     </div>
     <div class="card-reveal">
       <span class="card-title grey-text text-darken-4">CLIENTS<i class="material-icons right">close</i></span>
-      #foreach($client in $clients)
-      <p>$client.getName()</p>
+      #foreach($client in $stylist.getClients())
+      <a href="/stylists/$stylist.getId()/clients/$client.getId()"><h4>$client.getName()</h4></a>
       #end
     </div>
   </div>
