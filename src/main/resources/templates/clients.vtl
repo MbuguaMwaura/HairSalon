@@ -9,7 +9,7 @@
             #foreach($client in $clients)
              <li class="collection-item avatar">
                <i class="material-icons circle red">play_arrow</i>
-               <span class="title">$client.getName()</span>
+               <span class="title"><a href="/clients/$client.getId()"><h4>$client.getName()</h4></a></span>
                <p>$client.getGender()<br>$client.getNumber() <br>
                   $client.getEmail() <br><br>
 
