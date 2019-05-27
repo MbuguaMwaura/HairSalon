@@ -17,13 +17,13 @@
     <div class="row">
 
       #foreach($stylist in $stylists)
-      <div class="col m4">
+     <a  href="/stylists/$stylist.getId()"> <div class="col m4 s12">
         <div class="card-panel teal center-align">
           <span class="white-text">
 
-            <a  href="/stylists/$stylist.getId()">
+
               <h4 class="white-text">$stylist.getName()</h4>
-            </a>
+
 
 
 
@@ -31,7 +31,7 @@
           </span>
 
 
-        </div>
+        </div> </a>
       </div>
       #end
 

@@ -1,26 +1,43 @@
+<div class = "row">
+     <div class="col m12 s12 center-align">
+
+        <h1 class="styled">Clients</h1>
+
+     </div>
+</div>
+
+<hr>
+
 <div class="row">
 
-    <div class = "col m2"></div>
 
-    <div class = "col m8">
 
-         <ul class="collection">
+  <div class="col m12">
 
-            #foreach($client in $clients)
-             <li class="collection-item avatar">
-               <i class="material-icons circle red">play_arrow</i>
-               <span class="title"><a href="/clients/$client.getId()"><h4>$client.getName()</h4></a></span>
-               <p>$client.getGender()<br>$client.getNumber() <br>
-                  $client.getEmail() <br><br>
+    <div class="row">
 
-               </p>
-               <br><br>
-               <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-             </li>
-             #end
-           </ul>
+      #foreach($client in $clients)
+     <a  href="/clients/$client.getId()"> <div class="col m4 s12">
+        <div class="card-panel teal center-align">
+          <span class="white-text">
+
+
+              <h4 class="white-text">$client.getName()</h4>
+
+
+
+
+
+          </span>
+
+
+        </div> </a>
+      </div>
+      #end
 
     </div>
 
-    <div class = "col m2"></div>
+  </div>
+
+
 </div>
