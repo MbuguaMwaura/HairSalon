@@ -128,6 +128,19 @@ public class App{
             response.redirect(url);
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
+
+        post("/stylists/:id", (request, response) -> {
+            Map<String,Object> model = new HashMap<String, Object>();
+            Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
+            String name = request.queryParams("name");
+            int number = Integer.parseInt(request.queryParams("number"));
+            int age = Integer.parseInt(request.queryParams("age"));
+            String gender = request.queryParams("gender");
+            stylist.update(name,number,age,gender);
+            String url = String.format("/stylists/%d", stylist.getId());
+            response.redirect(url);
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
     }
 }
 

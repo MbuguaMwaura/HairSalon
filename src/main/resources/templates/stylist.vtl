@@ -14,10 +14,53 @@
       <p><a href="#">This is a link</a></p>
     </div>
     <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">CLIENTS<i class="material-icons right">close</i></span>
-      #foreach($client in $stylist.getClients())
-      <a href="/stylists/$stylist.getId()/clients/$client.getId()"><h4>$client.getName()</h4></a>
-      #end
+      <span class="card-title grey-text text-darken-4">EDIT STYLIST DETAILS<i class="material-icons right">close</i></span>
+
+        <form class="col s12" action = "/stylists/$stylist.getId()" method = "post">
+            <div class="row">
+
+                    <div class="input-field col s12">
+                      <input id="name" type="text" name="name" class="validate">
+                      <label for="name">Name</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input type="number" name="number" class="validate">
+                      <label for="number">Number</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                               <div class="input-field col s6">
+                                 <input type="number" name="age" class="validate">
+                                 <label for="age">Age</label>
+                               </div>
+                             </div>
+
+                   <div class="row">
+
+                               <div class="input-field col s6">
+                                 <input id="gender" name="gender" type="text" class="validate">
+                                 <label for="gender">Gender</label>
+                               </div>
+                             </div>
+
+         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+
+                        </form>
+
+
+
+    </div>
+     <div class="card-content">
+    <h5>CLIENTS</h5>
+     #foreach($client in $stylist.getClients())
+          <a href="/stylists/$stylist.getId()/clients/$client.getId()"><h6>$client.getName()</h6></a>
+          #end
     </div>
   </div>
 
