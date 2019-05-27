@@ -1,122 +1,149 @@
+<div class="row">
 
-  <div class = "row">
+  <div class="col m3">
+         <h2 class="styled" >Stylist Form</h2>
+  </div>
 
-    <div class = "col m6">
-<form class="col s12" action = "/stylists" method = "post">
-    <div class="row">
+  <div class="col m6">
+    <form class="col s12" action="/stylists" method="post">
+      <div class="row">
 
-            <div class="input-field col s12">
-              <input id="name" type="text" name="name" class="validate">
-              <label for="name">Name</label>
-            </div>
-          </div>
+        <div class="input-field col s12">
+          <input id="name" type="text" name="name" class="validate">
+          <label for="name">Name</label>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="input-field col s6">
-              <input type="number" name="number" class="validate">
-              <label for="number">Number</label>
-            </div>
-          </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="number" name="number" class="validate">
+          <label for="number">Number</label>
+        </div>
+      </div>
 
-          <div class="row">
-                       <div class="input-field col s6">
-                         <input type="number" name="age" class="validate">
-                         <label for="age">Age</label>
-                       </div>
-                     </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="number" name="age" class="validate">
+          <label for="age">Age</label>
+        </div>
+      </div>
 
-           <div class="row">
+      <div class="row">
+        <div class="input-field col s12">
+          <label class="text-white" for="gender">Select a Gender</label>
+          <select class="icons" id='gender' name='gender' type='text'>
+            <option class="text-muted" value="" disabled selected></option>
+            <option value="female" data-icon="../images/femenine.svg">Female</option>
+            <option value="male" data-icon="../images/mars.svg">Male</option>
+            <option value="non-binary" data-icon="../images/gender.svg">Non-binary</option>
 
-                       <div class="input-field col s6">
-                         <input id="gender" name="gender" type="text" class="validate">
-                         <label for="gender">Gender</label>
-                       </div>
-                     </div>
+          </select>
+        </div>
+      </div>
 
- <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    <i class="material-icons right">send</i>
-  </button>
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
 
-                </form>
-              </div>
+    </form>
 
+  </div>
 
-    </div>
-
-
-
-
-
-<div class = "row">
-
+  <div class="col m3">
 
 
+  </div>
+</div>
+ <br>
 
-<div class = "col m6">
+<hr>
 
+
+<div class="row">
+
+
+<br>
+
+  <div class="col m3">
+
+
+     <h2 class="styled" >Client Form</h2>
+
+
+  </div>
+
+  <div class="col m6">
+    <form class="col s12" action="/clients" method="post">
+      <div class="row">
+
+        <div class="input-field col s12">
+          <input id="clientname" name="clientname" type="text" class="validate">
+          <label for="clientname">Name</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s6">
+          <input type="number" name="clientnumber" class="validate">
+          <label for="clientnumber">Number</label>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" name="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label class="text-white" for="clientgender">Select a Gender</label>
+          <select id='clientgender' name='clientgender' type='text'>
+            <option class="text-muted" value="" disabled selected></option>
+            <option value="female" data-icon="../images/femenine.svg">Female</option>
+            <option value="male" data-icon="../images/mars.svg">Male</option>
+            <option value="non-binary" data-icon="../images/gender.svg">Non-binary</option>
+
+          </select>
+        </div>
+      </div>
+
+
+
+
+      <div class="row">
+        <div class="input-field col s12">
+          <label class="text-white" for="stylistId">Select a Stylist</label>
+          <select id='stylistId' name='stylistId' type='text'>
+
+            <option class="text-muted" value="" disabled selected></option>
+            #foreach($stylist in $stylists)
+            <option value="$stylist.getId()">$stylist.getName()</option>
+            #end
+          </select>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+          <i class="material-icons right">send</i>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="col m3">
+
+
+
+
+
+
+  </div>
 
 
 </div>
-
-<div class = "col m6">
-<form class="col s12" action = "/clients" method = "post">
-    <div class="row">
-
-            <div class="input-field col s12">
-              <input id="clientname" name="clientname" type="text" class="validate">
-              <label for="clientname">Name</label>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="input-field col s6">
-              <input type="number" name = "clientnumber" class="validate">
-              <label for="clientnumber">Number</label>
-            </div>
-          </div>
-
-
-           <div class="row">
-
-                       <div class="input-field col s6">
-                         <input id="clientgender" name = "clientgender" type="text" class="validate">
-                         <label for="clientgender">Gender</label>
-                       </div>
-                     </div>
-
-
-
-  <div class="row">
-            <div class="input-field col s12">
-              <input id="email" type="email" name = "email" class="validate">
-              <label for="email">Email</label>
-            </div>
-          </div>
-
-        <div class="row">
-<label class="text-white"  for="stylistId">Select a Stylist</label>
-                             <select id='stylistId' name='stylistId' type='text'>
-
-                                <option class="text-muted" value="" disabled selected>Click Me</option>
-                                 #foreach($stylist in $stylists)
-                                 <option value="$stylist.getId()">$stylist.getName()</option>
-                               #end
-                             </select>
-          </div>
-
-
-
-
-  <div class="row">
- <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-    <i class="material-icons right">send</i>
-  </button>
-  </div>
-                </form>
-              </div>
-
-
-
-
-    </div>
-

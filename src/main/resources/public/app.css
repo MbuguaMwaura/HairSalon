@@ -7,3 +7,12 @@
   main {
     flex: 1 0 auto;
   }
+
+  .styled{
+font-family: 'Pacifico', cursive;
+color: #ef6b74;
+  }
+
+  hr{
+  border-color:#ef6b74;
+  }
