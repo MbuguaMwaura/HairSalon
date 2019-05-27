@@ -7,20 +7,15 @@
             <div class="card-image waves-effect waves-block waves-light">
               <img class="activator" src="images/office.jpg">
             </div>
-            <div class="card-content">
+            <div class="card-content center-align">
               <span class="card-title activator grey-text text-darken-4"><h2>$client.getName()</h1><i class="material-icons right">more_vert</i></span>
+                <h5>Client Details:</h5>
+                <p>Gender: $client.getGender() <br>Phone-number: $client.getNumber() <br>  Email: $client.getEmail()</p>
 
 
-              <form action="/clients/$client.getId()/delete" method="post">
-                   <button type="submit" class="btn btn-danger" id="delete-client">Delete Client</button>
-              </form>
             </div>
             <div class="card-reveal">
-              <span class="card-title grey-text text-darken-4">Details<i class="material-icons right">close</i></span>
-
-              <p>$client.getGender() <br> $client.getNumber() <br> $client.getEmail()</p>
-
-              <h4 class = "text-white">Edit Client Details:</h4>
+              <span class="card-title grey-text text-darken-4">EDIT CLIENT DETAILS<i class="material-icons right">close</i></span>
 
                       <form action="/clients/$client.getId()" method="post">
 
@@ -43,8 +38,14 @@
                                 <div class="row">
 
                                             <div class="input-field col s6">
-                                              <input id="clientgender" name = "clientgender" type="text" class="validate">
-                                              <label for="clientgender">Gender</label>
+                                               <label class="text-white" for="clientgender"></label>
+                                                        <select id='clientgender' name='clientgender' type='text'>
+                                                          <option class="text-muted" value="" disabled selected>Select a Gender</option>
+                                                          <option value="female" data-icon="../images/femenine.svg">Female</option>
+                                                          <option value="male" data-icon="../images/mars.svg">Male</option>
+                                                          <option value="non-binary" data-icon="../images/gender.svg">Non-binary</option>
+
+                                                        </select>
                                             </div>
                                           </div>
 
@@ -58,14 +59,16 @@
                                </div>
 
                              <div class="row">
-                     <label class="text-white"  for="stylistId">Select a Stylist</label>
-                                                  <select id='stylistId' name='stylistId' type='text'>
+                             <div class="input-field col s12">
+                   <label class="text-white" for="stylistId"></label>
+                             <select id='stylistId' name='stylistId' type='text'>
 
-                                                     <option class="text-muted" value="" disabled selected>Click Me</option>
-                                                      #foreach($stylist in $stylists)
-                                                      <option value="$stylist.getId()">$stylist.getName()</option>
-                                                    #end
-                                                  </select>
+                               <option class="text-grey" value="" disabled selected>Select a Stylist</option>
+                               #foreach($stylist in $stylists)
+                               <option value="$stylist.getId()">$stylist.getName()</option>
+                               #end
+                             </select>
+                               </div>
                                </div>
 
 
@@ -78,9 +81,16 @@
                        </div>
                                      </form>
 
-
             </div>
+
+<div class = "card-content">
+ <form action="/clients/$client.getId()/delete" method="post">
+                                 <button type="submit" class="btn btn-danger" id="delete-client">Delete Client</button>
+                            </form>
+                            </div>
+
   </div>
+
     </div>
 
     <div class = "col m2"></div>

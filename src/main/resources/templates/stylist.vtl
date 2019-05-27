@@ -43,8 +43,14 @@
                    <div class="row">
 
                                <div class="input-field col s6">
-                                 <input id="gender" name="gender" type="text" class="validate">
-                                 <label for="gender">Gender</label>
+                                 <label class="text-white" for="gender"></label>
+                                           <select class="icons" id='gender' name='gender' type='text'>
+                                             <option class="text-muted" value="" disabled selected>Select a Gender</option>
+                                             <option value="female" data-icon="../images/femenine.svg">Female</option>
+                                             <option value="male" data-icon="../images/mars.svg">Male</option>
+                                             <option value="non-binary" data-icon="../images/gender.svg">Non-binary</option>
+
+                                           </select>
                                </div>
                              </div>
 

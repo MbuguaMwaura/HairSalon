@@ -30,9 +30,9 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <label class="text-white" for="gender">Select a Gender</label>
+          <label class="text-white" for="gender"></label>
           <select class="icons" id='gender' name='gender' type='text'>
-            <option class="text-muted" value="" disabled selected></option>
+            <option class="text-muted" value="" disabled selected>Select a Gender</option>
             <option value="female" data-icon="../images/femenine.svg">Female</option>
             <option value="male" data-icon="../images/mars.svg">Male</option>
             <option value="non-binary" data-icon="../images/gender.svg">Non-binary</option>
@@ -99,9 +99,9 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <label class="text-white" for="clientgender">Select a Gender</label>
+          <label class="text-white" for="clientgender"></label>
           <select id='clientgender' name='clientgender' type='text'>
-            <option class="text-muted" value="" disabled selected></option>
+            <option class="text-muted" value="" disabled selected>Select a Gender</option>
             <option value="female" data-icon="../images/femenine.svg">Female</option>
             <option value="male" data-icon="../images/mars.svg">Male</option>
             <option value="non-binary" data-icon="../images/gender.svg">Non-binary</option>
@@ -115,10 +115,10 @@
 
       <div class="row">
         <div class="input-field col s12">
-          <label class="text-white" for="stylistId">Select a Stylist</label>
+          <label class="text-white" for="stylistId"></label>
           <select id='stylistId' name='stylistId' type='text'>
 
-            <option class="text-muted" value="" disabled selected></option>
+            <option class="text-grey" value="" disabled selected>Select a Stylist</option>
             #foreach($stylist in $stylists)
             <option value="$stylist.getId()">$stylist.getName()</option>
             #end
