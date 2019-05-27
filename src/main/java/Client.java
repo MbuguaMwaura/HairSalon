@@ -113,4 +113,13 @@ public class Client{
     public static int getCount(){
         return Client.all().size();
     }
+
+    public static Client search(String name){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM clients WHERE name Like :name";
+          return   con.createQuery(sql)
+                    .addParameter("name", name+"%" )
+                    .executeAndFetchFirst(Client.class);
+        }
+    }
 }

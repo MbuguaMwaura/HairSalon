@@ -102,4 +102,14 @@ public class ClientTest{
         secondClient.save();
         assertEquals(2, Client.getCount());
     }
+
+    @Test
+    public void search_returnsSearchForClient_Client(){
+        Client firstClient = new Client("Mary", 01,"email",1, "female");
+        firstClient.save();
+        Client secondClient = new Client("John", 02, "email",1,"male");
+        secondClient.save();
+        Client searched = Client.search("Jo");
+        assertEquals(searched.getName(), secondClient.getName());
+    }
 }
