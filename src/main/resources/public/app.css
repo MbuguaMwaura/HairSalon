@@ -16,3 +16,21 @@ color: #ef6b74;
   hr{
   border-color:#ef6b74;
   }
+#landing{
+background-color:#ef6b74;
+color:white;
+
+
+}
+
+.logo{
+    height: 200px;
+    width: 200px;
+     -webkit-filter: invert(100%);
+        filter: invert(100%);
+}
+
+.down{
+margin-top: 5%;
+}
+
