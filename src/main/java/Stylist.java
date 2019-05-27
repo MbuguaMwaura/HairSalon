@@ -117,4 +117,14 @@ public class Stylist{
     public static int getCount(){
         return Stylist.all().size();
     }
+
+    public static Stylist search(String name){
+        try(Connection con = DB.sql2o.open()){
+            String sql = "SELECT * FROM stylists WHERE name LIKE :name";
+          return  con.createQuery(sql)
+                    .addParameter("name", name + "%")
+                  .executeAndFetchFirst(Stylist.class);
+
+        }
+    }
 }

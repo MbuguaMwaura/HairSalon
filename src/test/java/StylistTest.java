@@ -113,4 +113,14 @@ public class StylistTest{
         secondStylist.save();
         assertEquals(2, Stylist.getCount());
     }
+
+    @Test
+    public void search_returnSearchedStylist_Stylist(){
+        Stylist firstStylist = new Stylist("Jessica", 01, 21, "female");
+        firstStylist.save();
+        Stylist secondStylist = new Stylist("James", 02, 25, "male");
+        secondStylist.save();
+        Stylist searched = Stylist.search("Ja");
+        assertEquals(searched.getName(), secondStylist.getName());
+    }
 }

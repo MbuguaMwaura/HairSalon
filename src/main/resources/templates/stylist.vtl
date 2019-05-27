@@ -6,11 +6,11 @@
 
 
   <div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/office.jpg">
-    </div>
+
     <div class="card-content center-align">
       <span class="card-title activator grey-text text-darken-4"><h2>$stylist.getName()</h1><i class="material-icons right">more_vert</i></span>
+
+      <br>
       <h5>Stylist Details:</h5>
       <p> Gender: $stylist.getGender()<br> Age: $stylist.getAge()  <br> Phone-Number: $stylist.getNumber() <br></p>
     </div>
@@ -63,11 +63,19 @@
 
 
     </div>
+    <hr>
      <div class="card-content">
+
+     #if($stylist.getClients().size()>0)
     <h5>CLIENTS</h5>
-     #foreach($client in $stylist.getClients())
-          <a href="/stylists/$stylist.getId()/clients/$client.getId()"><h6>$client.getName()</h6></a>
-          #end
+             #foreach($client in $stylist.getClients())
+                  <a href="/stylists/$stylist.getId()/clients/$client.getId()"><h6>$client.getName()</h6></a>
+             #end
+
+
+      #else
+      <h4 class="styled">$stylist.getName() has no clients!</h4>
+      #end
     </div>
     <div class = "card-content">
      <form action="/stylists/$stylist.getId()/delete" method="post">

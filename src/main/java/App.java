@@ -126,6 +126,7 @@ public class App{
             client.update(name,number,email,stylist.getId(),gender);
             String url = String.format("/clients/%d", client.getId());
             response.redirect(url);
+
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
 
