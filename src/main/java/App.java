@@ -141,6 +141,15 @@ public class App{
             response.redirect(url);
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
+
+        post("/stylists/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
+            stylist.deleteStylist();
+            model.put("stylists", Stylist.all());
+            model.put("template", "templates/stylists.vtl");
+            return new ModelAndView(model, layout);
+        }, new VelocityTemplateEngine());
     }
 }
 

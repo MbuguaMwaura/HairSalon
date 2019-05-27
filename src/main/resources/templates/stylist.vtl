@@ -62,6 +62,14 @@
           <a href="/stylists/$stylist.getId()/clients/$client.getId()"><h6>$client.getName()</h6></a>
           #end
     </div>
+    <div class = "card-content">
+     <form action="/stylists/$stylist.getId()/delete" method="post">
+
+         <a class="tooltipped" data-position="bottom" data-tooltip="All clients under the stylist will be deleted too"><button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button></a>
+
+                  </form>
+
+      </div>
   </div>
 
     </div>
