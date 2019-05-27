@@ -3,8 +3,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import spark.ModelAndView;
 import spark.template.velocity.VelocityTemplateEngine;
+
+
 
 import static spark.Spark.*;
 
@@ -42,10 +45,12 @@ public class App{
             String gender = request.queryParams("clientgender");
 
             String email = request.queryParams("email");
-            Client client = new Client(name, number, email, 1,gender);
+            Client client = new Client(name, number, email, stylist.getId(),gender);
             client.save();
             model.put("stylists", Stylist.all());
             model.put("stylist", stylist);
+            model.put("client", client);
+            model.put("clients", Client.all());
             model.put("template", "templates/clients.vtl");
             return new ModelAndView(model,layout);
         }, new VelocityTemplateEngine());
@@ -85,6 +90,7 @@ public class App{
         get("/clients/:id", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
             Client client = Client.find(Integer.parseInt(request.params("id")));
+            model.put("stylists", Stylist.all());
             model.put("client", client);
             model.put("template", "templates/client.vtl");
             return new ModelAndView(model,layout);
@@ -98,6 +104,29 @@ public class App{
             model.put("client", client);
             model.put("template", "templates/client.vtl");
             return new ModelAndView(model,layout);
+        }, new VelocityTemplateEngine());
+
+        post("/clients/:id/delete", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Client client = Client.find(Integer.parseInt(request.params(":id")));
+            client.deleteClient();
+            model.put("clients", Client.all());
+            model.put("template", "templates/clients.vtl");
+            return new ModelAndView(model,layout);
+        }, new VelocityTemplateEngine());
+
+        post("/clients/:id", (request, response) -> {
+            Map<String, Object> model = new HashMap<String, Object>();
+            Stylist stylist = Stylist.find(Integer.parseInt(request.queryParams("stylistId")));
+            Client client = Client.find(Integer.parseInt(request.params(":id")));
+            String name = request.queryParams("clientname");
+            int number = Integer.parseInt(request.queryParams("clientnumber"));
+            String gender = request.queryParams("clientgender");
+            String email = request.queryParams("email");
+            client.update(name,number,email,stylist.getId(),gender);
+            String url = String.format("/clients/%d", client.getId());
+            response.redirect(url);
+            return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
     }
 }

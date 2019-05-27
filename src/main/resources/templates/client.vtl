@@ -3,20 +3,83 @@
     <div class = "col m2"></div>
 
     <div class = "col m8">
-<div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="images/office.jpg">
-    </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4"><h2>$client.getName()</h1><i class="material-icons right">more_vert</i></span>
-      <p><a href="#">This is a link</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">DETAILS<i class="material-icons right">close</i></span>
+        <div class="card">
+            <div class="card-image waves-effect waves-block waves-light">
+              <img class="activator" src="images/office.jpg">
+            </div>
+            <div class="card-content">
+              <span class="card-title activator grey-text text-darken-4"><h2>$client.getName()</h1><i class="material-icons right">more_vert</i></span>
 
-      <p>$client.getGender() <br> $client.getNumber() <br> $client.getEmail()</p>
 
-    </div>
+              <form action="/clients/$client.getId()/delete" method="post">
+                   <button type="submit" class="btn btn-danger" id="delete-client">Delete Client</button>
+              </form>
+            </div>
+            <div class="card-reveal">
+              <span class="card-title grey-text text-darken-4">EDIT<i class="material-icons right">close</i></span>
+
+              <p>$client.getGender() <br> $client.getNumber() <br> $client.getEmail()</p>
+
+              <h4 class = "text-white">Edit task:</h4>
+
+                      <form action="/clients/$client.getId()" method="post">
+
+                         <div class="row">
+
+                                 <div class="input-field col s12">
+                                   <input id="clientname" name="clientname" type="text" class="validate">
+                                   <label for="clientname">Name</label>
+                                 </div>
+                               </div>
+
+                               <div class="row">
+                                 <div class="input-field col s6">
+                                   <input type="number" name = "clientnumber" class="validate">
+                                   <label for="clientnumber">Number</label>
+                                 </div>
+                               </div>
+
+
+                                <div class="row">
+
+                                            <div class="input-field col s6">
+                                              <input id="clientgender" name = "clientgender" type="text" class="validate">
+                                              <label for="clientgender">Gender</label>
+                                            </div>
+                                          </div>
+
+
+
+                       <div class="row">
+                                 <div class="input-field col s12">
+                                   <input id="email" type="email" name = "email" class="validate">
+                                   <label for="email">Email</label>
+                                 </div>
+                               </div>
+
+                             <div class="row">
+                     <label class="text-white"  for="stylistId">Select a Stylist</label>
+                                                  <select id='stylistId' name='stylistId' type='text'>
+
+                                                     <option class="text-muted" value="" disabled selected>Click Me</option>
+                                                      #foreach($stylist in $stylists)
+                                                      <option value="$stylist.getId()">$stylist.getName()</option>
+                                                    #end
+                                                  </select>
+                               </div>
+
+
+
+
+                       <div class="row">
+                      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                         <i class="material-icons right">send</i>
+                       </button>
+                       </div>
+                                     </form>
+
+
+            </div>
   </div>
     </div>
 
