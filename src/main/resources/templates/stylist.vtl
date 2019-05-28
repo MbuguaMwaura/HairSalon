@@ -42,7 +42,7 @@
 
                    <div class="row">
 
-                               <div class="input-field col s6">
+                               <div class="input-field col s12">
                                  <label class="text-white" for="gender"></label>
                                            <select class="icons" id='gender' name='gender' type='text'>
                                              <option class="text-muted" value="" disabled selected>Select a Gender</option>
@@ -69,7 +69,7 @@
      #if($stylist.getClients().size()>0)
     <h5>CLIENTS</h5>
              #foreach($client in $stylist.getClients())
-                  <a href="/stylists/$stylist.getId()/clients/$client.getId()"><h6>$client.getName()</h6></a>
+                  <a href="/clients/$client.getId()"><h6>$client.getName()</h6></a>
              #end
 
 
@@ -80,7 +80,7 @@
     <div class = "card-content">
      <form action="/stylists/$stylist.getId()/delete" method="post">
 
-         <a class="tooltipped" data-position="bottom" data-tooltip="All clients under the stylist will be deleted too"><button type="submit" class="btn btn-danger" id="delete-stylist">Delete Stylist</button></a>
+         <a class="tooltipped" data-position="bottom" data-tooltip="All clients under the stylist will be deleted too"><button type="submit" class="btn red" id="delete-stylist">Delete Stylist</button></a>
 
                   </form>
 

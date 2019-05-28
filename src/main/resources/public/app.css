@@ -27,10 +27,17 @@ color:white;
     height: 200px;
     width: 200px;
      -webkit-filter: invert(100%);
-        filter: invert(100%);
+             filter: invert(100%);
 }
 
 .down{
 margin-top: 5%;
+}
+
+.logoimg{
+height: 55px;
+    width: 55px;
+-webkit-filter: invert(100%);
+        filter: invert(100%);
 }
 

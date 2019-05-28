@@ -1,0 +1,93 @@
+<div class="row">
+
+    <div class = "col m2"></div>
+
+    <div class = "col m8">
+
+
+  <div class="card">
+
+    <div class="card-content center-align">
+      <span class="card-title activator grey-text text-darken-4"><h2>$stylist.getName()</h1><i class="material-icons right">more_vert</i></span>
+
+      <br>
+      <h5>Stylist Details:</h5>
+      <p> Gender: $stylist.getGender()<br> Age: $stylist.getAge()  <br> Phone-Number: $stylist.getNumber() <br></p>
+    </div>
+    <div class="card-reveal">
+      <span class="card-title grey-text text-darken-4">EDIT STYLIST DETAILS<i class="material-icons right">close</i></span>
+
+        <form class="col s12" action = "/stylists/$stylist.getId()" method = "post">
+            <div class="row">
+
+                    <div class="input-field col s12">
+                      <input id="name" type="text" name="name" class="validate">
+                      <label for="name">Name</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="input-field col s6">
+                      <input type="number" name="number" class="validate">
+                      <label for="number">Number</label>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                               <div class="input-field col s6">
+                                 <input type="number" name="age" class="validate">
+                                 <label for="age">Age</label>
+                               </div>
+                             </div>
+
+                   <div class="row">
+
+                               <div class="input-field col s12">
+                                 <label class="text-white" for="gender"></label>
+                                           <select class="icons" id='gender' name='gender' type='text'>
+                                             <option class="text-muted" value="" disabled selected>Select a Gender</option>
+                                             <option value="female" data-icon="../images/femenine.svg">Female</option>
+                                             <option value="male" data-icon="../images/mars.svg">Male</option>
+                                             <option value="non-binary" data-icon="../images/gender.svg">Non-binary</option>
+
+                                           </select>
+                               </div>
+                             </div>
+
+         <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+          </button>
+
+                        </form>
+
+
+
+    </div>
+    <hr>
+     <div class="card-content">
+
+     #if($stylist.getClients().size()>0)
+    <h5>CLIENTS</h5>
+             #foreach($client in $stylist.getClients())
+                  <a href="/stylists/$stylist.getId()/clients/$client.getId()"><h6>$client.getName()</h6></a>
+             #end
+
+
+      #else
+      <h4 class="styled">$stylist.getName() has no clients!</h4>
+      #end
+    </div>
+    <div class = "card-content">
+     <form action="/stylists/$stylist.getId()/delete" method="post">
+
+         <a class="tooltipped" data-position="bottom" data-tooltip="All clients under the stylist will be deleted too"><button type="submit" class="btn red" id="delete-stylist">Delete Stylist</button></a>
+
+                  </form>
+
+      </div>
+  </div>
+
+    </div>
+
+    <div class = "col m2"></div>
+</div>
